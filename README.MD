@@ -2,6 +2,14 @@
 
 #### Setup
 
+#### How to test in postman
+
+
+REGISTER
+```bash
+(POST) localhost:3000/api/vi/auth/register
+```
+
 ```bash
 npm install
 ```
