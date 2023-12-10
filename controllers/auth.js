@@ -48,4 +48,17 @@ const logout = async (req, res) => {
   });
 };
 
-module.exports = { login, loginWithGoogle, logout}
+const register = async (req, res) => {
+  const { email, password, username } = req.body;
+  try {
+    const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const user = userCredential.user;
+    await user.updateProfile({ displayName: username });
+    req.session.uid = user.uid;
+    res.status(StatusCodes.CREATED).json({ message: 'User created', body: user });
+  } catch (error) {
+    throw new BadRequestError('Invalid signup credentials');
+  }
+};
+
+module.exports = { login, loginWithGoogle, logout, register};
