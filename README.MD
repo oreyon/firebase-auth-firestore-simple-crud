@@ -5,11 +5,47 @@
 #### How to test in postman
 
 
-REGISTER
+(POST) REGISTER
 ```bash
-(POST) localhost:3000/api/vi/auth/register
+localhost:3000/api/vi/auth/register
 ```
 
+(POST) LOGIN
+```bash
+localhost:3000/api/vi/auth/login
+```
+
+(GET) LOGOUT
+```bash
+localhost:3000/api/vi/auth/logout
+```
+
+(GET) Get All Users
+```bash
+localhost:3000/api/vi/users/
+```
+
+(GET) Get User by id
+```bash
+localhost:3000/api/vi/users/:id
+```
+
+(POST) Create User
+```bash
+localhost:3000/api/vi/users/
+```
+
+(DELETE) Delete User
+```bash
+localhost:3000/api/vi/users/:id
+```
+
+(PATCH) Update User
+```bash
+localhost:3000/api/vi/users/:id
+```
+
+#### Install dependencies
 ```bash
 npm install
 ```
