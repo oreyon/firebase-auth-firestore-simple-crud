@@ -6,7 +6,8 @@
 npm install
 ```
 
-```setup env
+#### setup env
+```bash
   FIREBASE_API_KEY = 
   FIREBASE_AUTH_DOMAIN = 
   PROJECT_ID =
@@ -16,7 +17,8 @@ npm install
   MEASUREMENT_ID =
 ```
 
-```download service-account.json
+#### download service-account.json
+```bash
   1. go to https://console.firebase.google.com
   2. Project Overview
   3. Project Settings
