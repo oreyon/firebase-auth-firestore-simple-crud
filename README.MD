@@ -8,6 +8,7 @@ npm install
 ```
 
 #### setup env
+Project Overview > Project Settings > Place you firestore config here
 ```bash
   FIREBASE_API_KEY = 
   FIREBASE_AUTH_DOMAIN = 
