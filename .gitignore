@@ -1,3 +1,4 @@
 /node_modules
 service-account.json
+oauth-secret.json
 .env

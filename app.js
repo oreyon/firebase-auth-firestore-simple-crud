@@ -12,10 +12,10 @@ const xss = require('xss-clean');
 const rateLimiter = require('express-rate-limit');
 
 // connect to db
-// const { admin, firebase, usersRef, db } = require('./db/firebase');
 const { db } = require('./db/firebase');
 
 // routers
+const googleAuthRouter = require('./db/auth');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 
@@ -40,13 +40,14 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 app.use(session({
-    secret: 'secret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
 })
 );
 
 // routes
+app.use('/api/v1/auth', googleAuthRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', isAuthenticated, usersRouter);
 
