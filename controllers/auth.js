@@ -17,9 +17,10 @@ const login = async (req, res) => {
     const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
     const user = userCredential.user;
     req.session.uid = user.uid;
+    req.session.token = await user.getIdToken();
     // res.status(StatusCodes.OK).json({ id: user.uid, email: user.email });
     // res.status(StatusCodes.OK).json({ message: 'Login success', body: { id: user.uid, email: user.email } });
-    res.status(StatusCodes.OK).json({ message: 'Login success', body: user });
+    res.status(StatusCodes.OK).json({ message: 'Login success', body: { id: user.id, email: user.email }, token: req.session.token });
   } catch (error) {
     // Check if the error is due to user not found
     if (error.code === 'auth/user-not-found') {
